@@ -1,5 +1,5 @@
 find_fcRNA.pl - find fusion-circRNAs (fcRNAs) from RNA-seq data.
-      by  Qinjie Chu (Version: 1.0  Last Modified: 2017-04-20)
+      by  Qinjie Chu (Version: 1.0  Last Modified: 2017-04-20 E-mail:qinjiechu@zju.edu.cn)
 
 Usage: perl find_fcRNA.pl [options]
  required:
@@ -51,7 +51,7 @@ Some tips should be paid attention to:
 
 ###detailed running steps
 1. generate fusion sites by tophat-fusion (v2.1.0) (paired-end reads treated as single-end reads)
-   #command£º
+   #commandÂ£Âº
       tophat -o [tophat_fusion_output_file] -p [threads] --fusion-search --keep-fasta-order --bowtie1 --no-coverage-search --fusion-min-dist 100000 --fusion-anchor-length 10 --fusion-multireads 10 [genome_index_bowtie1] [one_seq_file]
    #output files:
       [fcRNA_out]/[tophat_fusion_output_file]
@@ -65,9 +65,9 @@ Some tips should be paid attention to:
                          |----logs(directory)
 
 2. generate unmapped reads by bowtie (v0.12.9)
-   #command (if the sequence file is fastq format)£º
+   #command (if the sequence file is fastq format)Â£Âº
       bowtie -t -q -v 2 -p [threads] --mm --un [unmapped_reads_file] [genome_index_bowtie1] [one_fastq_file] > [bowtie_output_file]
-   #command (if the sequence file is fasta format)£º
+   #command (if the sequence file is fasta format)Â£Âº
       bowtie -t -f -v 2 -p [threads] --mm --un [unmapped_reads_file] [genome_index_bowtie1] [one_fasta_file] > [bowtie_output_file]
    #output file:
       [fcRNA_out]/[unmapped_reads_file]
